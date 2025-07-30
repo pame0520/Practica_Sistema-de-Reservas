@@ -100,7 +100,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroUsuarioActionPerformed
-       RegistroUsuario reg = new RegistroUsuario(this, true);
+       RegistroUsuario reg = new RegistroUsuario(this,true);
         reg.setVisible(true);
     }//GEN-LAST:event_RegistroUsuarioActionPerformed
 
@@ -110,7 +110,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarVuelosActionPerformed
 
     private void btnLoginUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUsuarioActionPerformed
-  LoginUsuario login = new LoginUsuario(this, true);
+      LoginUsuario login = new LoginUsuario(this, true);
     login.setVisible(true);
     Usuario user = login.getUsuarioLogueado();
     if (user != null) {
