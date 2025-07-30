@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-
+import controlador.ControladorPrincipal;
 import modelo.Usuario;
 
 /**
@@ -11,7 +11,7 @@ import modelo.Usuario;
  * @author pame
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+private ControladorPrincipal controlador = new ControladorPrincipal();
     /**
      * Creates new form VentanaPrincipal
      */
@@ -32,10 +32,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         RegistroUsuario = new javax.swing.JButton();
         btnBuscarVuelos = new javax.swing.JButton();
         btnLoginUsuario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblUsuarioActivo = new javax.swing.JLabel();
+        btnHacerReserva = new javax.swing.JButton();
+        btnVerItinerario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
 
         RegistroUsuario.setText("Registrar Usuario");
         RegistroUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -51,10 +56,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnLoginUsuario.setText("Login Usuario");
+        btnLoginUsuario.setText("Iniciar Session");
         btnLoginUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginUsuarioActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("Sistema de Reservas");
+
+        lblUsuarioActivo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblUsuarioActivo.setText("No has iniciado sesión?");
+
+        btnHacerReserva.setText("Hacer Reserva");
+        btnHacerReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHacerReservaActionPerformed(evt);
+            }
+        });
+
+        btnVerItinerario.setText("Ver Itinerario");
+        btnVerItinerario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerItinerarioActionPerformed(evt);
             }
         });
 
@@ -63,23 +88,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnLoginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnLoginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RegistroUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVerItinerario, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHacerReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegistroUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42))
+                    .addComponent(lblUsuarioActivo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblUsuarioActivo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLoginUsuario)
+                .addGap(29, 29, 29)
                 .addComponent(RegistroUsuario)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarVuelos)
                 .addGap(18, 18, 18)
-                .addComponent(btnLoginUsuario)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addComponent(btnHacerReserva)
+                .addGap(18, 18, 18)
+                .addComponent(btnVerItinerario)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -88,8 +129,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,24 +141,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroUsuarioActionPerformed
-       RegistroUsuario reg = new RegistroUsuario(this,true);
-        reg.setVisible(true);
+      controlador.mostrarRegistro(this);
     }//GEN-LAST:event_RegistroUsuarioActionPerformed
 
     private void btnBuscarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVuelosActionPerformed
-       BuscarVuelos ventana = new BuscarVuelos();
-        ventana.setVisible(true);
+      new vista.BuscarVuelos().setVisible(true);
     }//GEN-LAST:event_btnBuscarVuelosActionPerformed
 
     private void btnLoginUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUsuarioActionPerformed
-      LoginUsuario login = new LoginUsuario(this, true);
-    login.setVisible(true);
-    Usuario user = login.getUsuarioLogueado();
-    if (user != null) {
-        System.out.println("Usuario logueado: " + user.getNombre());
-        // Aquí podrías activar funciones como hacer reservas, ver itinerario, etc.
+    controlador.mostrarLogin(this);
+    Usuario u = controlador.getUsuario();
+    if (u != null) {
+        lblUsuarioActivo.setText("Bienvenido, " + u.getNombre());
     }
     }//GEN-LAST:event_btnLoginUsuarioActionPerformed
+
+    private void btnHacerReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHacerReservaActionPerformed
+       controlador.mostrarReservas(this);
+    }//GEN-LAST:event_btnHacerReservaActionPerformed
+
+    private void btnVerItinerarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerItinerarioActionPerformed
+      controlador.mostrarItinerario(this);
+    }//GEN-LAST:event_btnVerItinerarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,7 +172,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton RegistroUsuario;
     private javax.swing.JButton btnBuscarVuelos;
+    private javax.swing.JButton btnHacerReserva;
     private javax.swing.JButton btnLoginUsuario;
+    private javax.swing.JButton btnVerItinerario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblUsuarioActivo;
     // End of variables declaration//GEN-END:variables
 }
