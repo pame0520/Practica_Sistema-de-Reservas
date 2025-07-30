@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="499" max="32767" attributes="0"/>
+              <EmptySpace pref="504" max="32767" attributes="0"/>
               <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Component id="btnReservarVuelo" min="-2" max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnReservarVuelo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reservar Vuelos"/>
+        <Property name="text" type="java.lang.String" value="Reservar Vuelo"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReservarVueloActionPerformed"/>

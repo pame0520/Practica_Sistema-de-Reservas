@@ -84,7 +84,7 @@ private Usuario usuario;
             }
         });
 
-        btnReservarVuelo.setText("Reservar Vuelos");
+        btnReservarVuelo.setText("Reservar Vuelo");
         btnReservarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservarVueloActionPerformed(evt);
@@ -96,7 +96,7 @@ private Usuario usuario;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(499, Short.MAX_VALUE)
+                .addContainerGap(504, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(33, 33, 33)
                 .addComponent(btnReservarVuelo)
